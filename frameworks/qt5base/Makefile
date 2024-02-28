@@ -153,6 +153,12 @@ define Package/qt5base-xml
   DEPENDS+=+qt5base-core
 endef
 
+define Package/qt5base-dbus
+  $(call Package/qt5base/Default)
+  TITLE+=dbus
+  DEPENDS+=+qt5base-core +libdbus
+endef
+
 #### plugins
 
 ####### bearer
@@ -263,11 +269,11 @@ endef
 
 ###### sql
 
-#define Package/qt5base-plugin-sqldrivers-sqlite
-#  $(call Package/qt5base/Default)
-#  TITLE+=sqldriver sqlite (plugin)
-#  DEPENDS+=+qt5base-core +qt5base-sql +libsqlite3
-#endef
+define Package/qt5base-plugin-sqldrivers-sqlite
+  $(call Package/qt5base/Default)
+  TITLE+=sqldriver sqlite (plugin)
+  DEPENDS+=+qt5base-core +qt5base-sql +libsqlite3
+endef
 
 define Package/qt5base-examples
   $(call Package/qt5base/Default)
@@ -279,6 +285,7 @@ define Package/qt5base-examples
 		+qt5base-network \
 		+qt5base-sql \
 		+qt5base-xml \
+		+qt5base-dbus \
 		+qt5base-printSupport \
 		+qt5base-concurrent \
 		+qt5base-gl
@@ -352,7 +359,7 @@ define Build/Configure
 			$(if $(CONFIG_PACKAGE_qt5base-examples),,--nomake=examples) \
 			--gui=$(if $(CONFIG_PACKAGE_qt5base-gui),yes,no) \
 			--widgets=$(if $(CONFIG_PACKAGE_qt5base-widgets),yes,no) \
-			--dbus=no \
+			--dbus=$(if $(CONFIG_PACKAGE_qt5base-dbus),yes,no) \
 			--accessibility=yes \
 			--doubleconversion=system \
 			--glib=no \
@@ -401,10 +408,10 @@ define Build/Configure
 			--sql-oci=no \
 			--sql-odbc=no \
 			--sql-psql=no \
-			--sql-sqlite=no \
+			--sql-sqlite=$(if $(CONFIG_PACKAGE_qt5base-plugin-sqldrivers-sqlite),yes,no) \
 			--sql-sqlite2=no \
 			--sql-tds=no \
-			--sqlite=no \
+			--sqlite=$(if $(CONFIG_PACKAGE_qt5base-plugin-sqldrivers-sqlite),yes,no) \
 	)
 endef
 
@@ -579,6 +586,10 @@ define Package/qt5base-xml/install
 	$(call Build/Install/Libs,$(1),libQt5Xml)
 endef
 
+define Package/qt5base-dbus/install
+	$(call Build/Install/Libs,$(1),libQt5DBus)
+endef
+
 define Package/qt5base-plugin-bearer-generic/install
 	$(call Build/Install/Plugins,$(1),bearer,libqgenericbearer)
 endef
@@ -643,9 +654,9 @@ define Package/qt5base-plugin-platforms-offscreen/install
 	$(call Build/Install/Plugins,$(1),platforms,libqoffscreen)
 endef
 
-#define Package/qt5base-plugin-sqldrivers-sqlite/install
-#	$(call Build/Install/Plugins,$(1),sqldrivers,libqsqlite)
-#endef
+define Package/qt5base-plugin-sqldrivers-sqlite/install
+	$(call Build/Install/Plugins,$(1),sqldrivers,libqsqlite)
+endef
 
 define Package/qt5base-examples/install
 	$(call Build/Install/Examples,$(1))
@@ -662,6 +673,7 @@ $(eval $(call BuildPackage,qt5base-sql))
 $(eval $(call BuildPackage,qt5base-test))
 $(eval $(call BuildPackage,qt5base-widgets))
 $(eval $(call BuildPackage,qt5base-xml))
+$(eval $(call BuildPackage,qt5base-dbus))
 $(eval $(call BuildPackage,qt5base-plugin-bearer-generic))
 $(eval $(call BuildPackage,qt5base-plugin-input-libinput))
 $(eval $(call BuildPackage,qt5base-plugin-input-evdevkeyboard))
@@ -678,6 +690,6 @@ $(eval $(call BuildPackage,qt5base-plugin-platforms-linuxfb))
 $(eval $(call BuildPackage,qt5base-plugin-platforms-minimal))
 $(eval $(call BuildPackage,qt5base-plugin-platforms-offscreen))
 $(eval $(call BuildPackage,qt5base-plugin-platforms-vnc))
-#$(eval $(call BuildPackage,qt5base-plugin-sqldrivers-sqlite))
+$(eval $(call BuildPackage,qt5base-plugin-sqldrivers-sqlite))
 $(eval $(call BuildPackage,qt5base-examples))
 $(eval $(call HostBuild))
