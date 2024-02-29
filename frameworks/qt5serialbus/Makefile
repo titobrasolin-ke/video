@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5serialbus
-PKG_VERSION:=5.15.2
+PKG_VERSION:=5.15.12
 PKG_RELEASE:=1
-PKG_HASH:=aeeb7e5c0d3f8503215b22e1a84c0002ca67cf63862f6e3c6ef44a67ca31bd88
+PKG_HASH:=6104dbb447ec475337ca96a07bf26d4fb3d06a6ff710a00892a16952a76aebf1
 
 PKG_SYS_NAME:=qtserialbus-everywhere-src-$(PKG_VERSION)
-PKG_SOURCE:=$(PKG_SYS_NAME).tar.xz
+PKG_SOURCE:=qtserialbus-everywhere-opensource-src-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://download.qt.io/archive/qt/$(basename $(PKG_VERSION))/$(PKG_VERSION)/submodules
 
 PKG_BUILD_DIR=$(BUILD_DIR)/$(PKG_SYS_NAME)

@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5translations
-PKG_VERSION:=5.15.0
+PKG_VERSION:=5.15.12
 PKG_RELEASE:=1
-PKG_HASH:=45c43268d9df50784d4d8ca345fce9288a1055fd074ac0ef508097f7aeba22fe
+PKG_HASH:=a830ba6158ccb36fdae97ebfa33ac7c2c92f4b609786717830d65aa2e0e77612
 
 PKG_SYS_NAME:=qttranslations-everywhere-src-$(PKG_VERSION)
-PKG_SOURCE:=$(PKG_SYS_NAME).tar.xz
+PKG_SOURCE:=qttranslations-everywhere-opensource-src-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://download.qt.io/official_releases/qt/$(basename $(PKG_VERSION))/$(PKG_VERSION)/submodules
 
 PKG_BUILD_DIR=$(BUILD_DIR)/$(PKG_SYS_NAME)

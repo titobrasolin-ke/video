@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5serialport
-PKG_VERSION:=5.15.2
+PKG_VERSION:=5.15.12
 PKG_RELEASE:=1
-PKG_HASH:=59c559d748417306bc1b2cf2315c1e63eed011ace38ad92946af71f23e2ef79d
+PKG_HASH:=0474d9ffc599491fef8ba28f222ffe5bba7f07be0591deb99ea819e991225914
 
 PKG_SYS_NAME:=qtserialport-everywhere-src-$(PKG_VERSION)
-PKG_SOURCE:=$(PKG_SYS_NAME).tar.xz
+PKG_SOURCE:=qtserialport-everywhere-opensource-src-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://download.qt.io/archive/qt/$(basename $(PKG_VERSION))/$(PKG_VERSION)/submodules
 
 PKG_BUILD_DIR=$(BUILD_DIR)/$(PKG_SYS_NAME)
