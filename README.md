@@ -10,7 +10,7 @@ To use these packages, add the following line to the feeds.conf
 in the OpenWrt buildroot:
 
 ```
-src-git video https://github.com/openwrt/video.git
+src-git video https://github.com/titobrasolin-ke/video.git
 ```
 
 This feed should be included and enabled by default in the OpenWrt buildroot. To install all its package definitions, run:
