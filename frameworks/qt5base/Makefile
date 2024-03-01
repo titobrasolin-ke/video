@@ -484,12 +484,12 @@ define Host/Configure
 			--xcb=no \
 			\
 			--libudev=no \
-			--evdev=no \
+			--evdev=yes \
 			--libinput=no \
 			--mtdev=no \
 			--tslib=no \
 			--bundled-xcb-xinput=no \
-			--xkbcommon=yes \
+			--xkbcommon=no \
 			--gif=no \
 			--ico=no \
 			--libjpeg=no \
