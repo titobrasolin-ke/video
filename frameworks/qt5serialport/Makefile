@@ -31,10 +31,16 @@ define Package/qt5serialport
   TITLE:=qt5serialport
   URL:=http://qt.io
   MAINTAINER:=Yaroslav Petrov <info@lank.me>
+  DEPENDS:=+qt5base-core +libstdcpp +libudev
+endef
+
+define Build/InstallDev
+	$(call Build/Install/Headers,$(1))
+	$(call Build/Install/Libs,$(1),libQt5SerialPort)
 endef
 
 define Package/qt5serialport/install
-	$(call Build/Install/Serialport,$(1),*)
+	$(call Build/Install/Libs,$(1),libQt5SerialPort)
 endef
 
 $(eval $(call BuildPackage,qt5serialport))
