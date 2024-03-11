@@ -35,8 +35,9 @@ define Package/qt5serialport
 endef
 
 define Build/InstallDev
+	$(call Build/Install/HostFiles,$(1))
 	$(call Build/Install/Headers,$(1))
-	$(call Build/Install/Libs,$(1),libQt5SerialPort)
+	$(call Build/Install/Libs,$(1),*)
 endef
 
 define Package/qt5serialport/install
