@@ -518,6 +518,12 @@ define Build/InstallDev
 	$(call Build/Install/HostFiles,$(1))
 	$(call Build/Install/Headers,$(1))
 	$(call Build/Install/Libs,$(1),*)
+	$(INSTALL_DIR) $(1)/$(QT_INSTALL_LIBS)/cmake
+	$(CP) $(PKG_INSTALL_DIR)/$(QT_INSTALL_LIBS)/cmake/* \
+		$(1)/$(QT_INSTALL_LIBS)/cmake/
+	$(INSTALL_DIR) $(1)/$(QT_INSTALL_LIBS)/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)/$(QT_INSTALL_LIBS)/pkgconfig/*.pc \
+		$(1)/$(QT_INSTALL_LIBS)/pkgconfig/
 endef
 
 define Host/Install
