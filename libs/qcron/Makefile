@@ -21,7 +21,7 @@ define Package/qcron
   CATEGORY:=Libraries
   TITLE:=A cron-like scheduler based on Qt
   URL:=https://github.com/mankalas/qcron
-  DEPENDS:=+qt5base-core qt5base-test +libstdcpp
+  DEPENDS:=+qt5base-core +qt5base-test +libstdcpp
 endef
 
 define Build/InstallDev
