@@ -1,9 +1,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5mqtt
-PKG_VERSION:=5.15.12
+PKG_VERSION:=5.15.13
 PKG_RELEASE:=1
-PKG_HASH:=ade408b7bc9176aef365b1aef9d712f40a3a5e2ade1ce10f14abf3f4f4e0c158
+PKG_HASH:=90edf48d17ddc14a9fa58893f46e99822b028e1c9588ccc33ebd108f60389451
 
 PKG_SYS_NAME:=qtmqtt-everywhere-src-$(PKG_VERSION)
 PKG_SOURCE:=qtmqtt-everywhere-opensource-src-$(PKG_VERSION).tar.xz

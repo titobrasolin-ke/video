@@ -8,9 +8,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5tools
-PKG_VERSION:=5.15.12
+PKG_VERSION:=5.15.13
 PKG_RELEASE:=1
-PKG_HASH:=9a4084fee80a2acebb6415efa5a28dd666960129895a0bb7d97468a9f0c66506
+PKG_HASH:=57c9794c572c4e02871f2e7581525752b0cf85ea16cfab23a4ac9ba7b39a5d34
 
 PKG_SYS_NAME:=qttools-everywhere-src-$(PKG_VERSION)
 PKG_SOURCE:=qttools-everywhere-opensource-src-$(PKG_VERSION).tar.xz

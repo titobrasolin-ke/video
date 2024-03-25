@@ -8,9 +8,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5graphicaleffects
-PKG_VERSION:=5.15.12
+PKG_VERSION:=5.15.13
 PKG_RELEASE:=1
-PKG_HASH:=4664b1096c848d3679b91df3062508a1992ce75eaa0eb292947dfae2b61ad4e9
+PKG_HASH:=a84b9acb8104b9fdb465786fec3453206962c584242bd2b29807fc9cd6ad645e
 
 PKG_SYS_NAME:=qtgraphicaleffects-everywhere-src-$(PKG_VERSION)
 PKG_SOURCE:=qtgraphicaleffects-everywhere-opensource-src-$(PKG_VERSION).tar.xz

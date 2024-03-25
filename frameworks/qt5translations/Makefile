@@ -8,9 +8,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5translations
-PKG_VERSION:=5.15.12
+PKG_VERSION:=5.15.13
 PKG_RELEASE:=1
-PKG_HASH:=a830ba6158ccb36fdae97ebfa33ac7c2c92f4b609786717830d65aa2e0e77612
+PKG_HASH:=24d4c58bc2a40c0f44f59ee64af4192c7d0038c1e45af61646cfc5b65058f271
 
 PKG_SYS_NAME:=qttranslations-everywhere-src-$(PKG_VERSION)
 PKG_SOURCE:=qttranslations-everywhere-opensource-src-$(PKG_VERSION).tar.xz

@@ -12,9 +12,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5base
-PKG_VERSION:=5.15.12
+PKG_VERSION:=5.15.13
 PKG_RELEASE:=1
-PKG_HASH:=4c01b7b0f1f3c1e05ae6bf53c66e49c65c6b3872475bac26b0fb228136914af0
+PKG_HASH:=4cca51dcc1f22ceeee6b3e33cd1c3a60b14e85e24644dca3af89a2c2989ab809
 
 PKG_SYS_NAME:=qtbase-everywhere-src-$(PKG_VERSION)
 PKG_SOURCE:=qtbase-everywhere-opensource-src-$(PKG_VERSION).tar.xz

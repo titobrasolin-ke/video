@@ -8,9 +8,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5quick2-controls2
-PKG_VERSION:=5.15.12
+PKG_VERSION:=5.15.13
 PKG_RELEASE:=1
-PKG_HASH:=4d9ef0ba0369b1bb83abe71d62ae3261d908a3c039bb63556cb0901450ccb4bb
+PKG_HASH:=62833817efb909313d6697a2501d222b37a4ac5a8139295d4e87193ebb6f0fbb
 
 PKG_SYS_NAME:=qtquickcontrols2-everywhere-src-$(PKG_VERSION)
 PKG_SOURCE:=qtquickcontrols2-everywhere-opensource-src-$(PKG_VERSION).tar.xz

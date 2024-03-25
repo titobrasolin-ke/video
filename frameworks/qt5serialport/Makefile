@@ -8,9 +8,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5serialport
-PKG_VERSION:=5.15.12
+PKG_VERSION:=5.15.13
 PKG_RELEASE:=1
-PKG_HASH:=0474d9ffc599491fef8ba28f222ffe5bba7f07be0591deb99ea819e991225914
+PKG_HASH:=ebac963f00dafa75a3ec5643848d5abb4408ec5619643e22e420c1bc53d48ccc
 
 PKG_SYS_NAME:=qtserialport-everywhere-src-$(PKG_VERSION)
 PKG_SOURCE:=qtserialport-everywhere-opensource-src-$(PKG_VERSION).tar.xz
