@@ -1,0 +1,28 @@
+--- a/lib60870-C/src/iec60870/cs104/cs104_slave.c
++++ b/lib60870-C/src/iec60870/cs104/cs104_slave.c
+@@ -3477,3 +3477,13 @@ CS104_Slave_destroy(CS104_Slave self)
+ #endif
+ 
+ }
++
++void
++CS104_Slave_flushQueues(CS104_Slave self)
++{
++#if (CONFIG_CS104_SUPPORT_SERVER_MODE_SINGLE_REDUNDANCY_GROUP == 1)
++    if (self->serverMode == CS104_MODE_SINGLE_REDUNDANCY_GROUP)
++        MessageQueue_releaseAllQueuedASDUs(self->asduQueue);
++#endif
++}
++
+--- a/lib60870-C/src/inc/api/cs104_slave.h
++++ b/lib60870-C/src/inc/api/cs104_slave.h
+@@ -355,7 +355,8 @@ CS104_RedundancyGroup_addAllowedClientEx
+ void
+ CS104_RedundancyGroup_destroy(CS104_RedundancyGroup self);
+ 
+-
++void
++CS104_Slave_flushQueues(CS104_Slave self);
+ /**
+  * @}
+  */
