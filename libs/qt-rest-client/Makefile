@@ -10,6 +10,7 @@ PKG_SOURCE_URL:=https://github.com/emilio-simoes/qt-rest-client.git
 PKG_MIRROR_HASH:=5fa44f9bb49973b0460ee7ece7413b2926fe54e718d1ab49964d9a996c760df8
 
 PKG_INSTALL:=1
+PKG_BUILD_DEPENDS:=qt5base
 MAKE_PATH:=rest-client
 
 include $(INCLUDE_DIR)/package.mk
