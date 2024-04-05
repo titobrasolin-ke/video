@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
  
 PKG_NAME:=ProtoGen
 PKG_VERSION:=v.3.5.d
-PKG_RELEASE:=0
+PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/billvaglienti/ProtoGen.git
@@ -29,6 +29,14 @@ define Package/ProtoGen
   URL:=https://github.com/billvaglienti/ProtoGen
   DEPENDS:=+qt5base-core
   BUILDONLY:=1
+endef
+
+define Host/Install
+	$(call Host/Install/Default)
+
+	$(INSTALL_DIR) $(STAGING_DIR_HOST)/bin
+	$(CP) $(HOST_BUILD_DIR)/ProtoGen $(STAGING_DIR_HOST)/bin/
+	ln -sf $(STAGING_DIR_HOST)/bin/ProtoGen $(STAGING_DIR)/host/bin/
 endef
 
 $(eval $(call BuildPackage,ProtoGen))
