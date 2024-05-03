@@ -1,0 +1,64 @@
+--- a/src/nut/3rdparty/serializer/src/jsonserializer.cpp
++++ b/src/nut/3rdparty/serializer/src/jsonserializer.cpp
+@@ -10,9 +10,11 @@
+ #include <QtCore/QRectF>
+ #include <QtCore/QRegularExpression>
+ #include <QtCore/QVariantList>
+-#include <QtGui/QFont>
+-#include <QtGui/QPolygon>
+-#include <QtGui/QPolygonF>
++#ifdef QT_GUI_LIB
++#   include <QtGui/QFont>
++#   include <QtGui/QPolygon>
++#   include <QtGui/QPolygonF>
++#endif
+ 
+ #define VARIANT_TYPE QStringLiteral("_type")
+ #define VARIANT_VALUE QStringLiteral("_value")
+@@ -325,7 +327,7 @@ QJsonValue JsonSerializer::toJson(QVaria
+         }
+         case QVariant::RegularExpression:
+             return v.toRegularExpression().pattern();
+-
++#ifdef QT_GUI_LIB
+         case QVariant::Font: return v.value<QFont>().toString();
+         case QVariant::Polygon: {
+             QJsonArray arr;
+@@ -341,7 +343,7 @@ QJsonValue JsonSerializer::toJson(QVaria
+                 arr.append(toJson(pt));
+             return arr;
+         }
+-
++#endif
+         default: break;
+         }
+ 
+@@ -424,17 +426,20 @@ QVariant JsonSerializer::fromJson(const
+                       o.value(QStringLiteral("width")).toDouble(),
+                       o.value(QStringLiteral("height")).toDouble());
+     }
++#ifdef QT_GUI_LIB
+     case QMetaType::QFont: {
+         QFont f;
+         f.fromString(value.toString());
+         return f;
+     }
++#endif
+     case QMetaType::QRegularExpression: {
+         return QRegularExpression(value.toString());
+     }
+     case QMetaType::QLocale: {
+         return QLocale(value.toString());
+     }
++#ifdef QT_GUI_LIB
+     case QMetaType::QPolygon: {
+         QPolygon poly;
+         auto arr = value.toArray();
+@@ -449,6 +454,7 @@ QVariant JsonSerializer::fromJson(const
+             poly << fromJson(QMetaType::QPointF, val).toPointF();
+         return poly;
+     }
++#endif
+     default: break;
+     }
+     if (value.isArray()) {
