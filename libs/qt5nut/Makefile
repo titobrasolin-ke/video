@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt5nut
 PKG_VERSION:=0.6-beta-2
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/HamedMasafi/Nut.git
@@ -34,6 +34,8 @@ define Package/qt5nut
   URL:=https://github.com/HamedMasafi/Nut
   DEPENDS:=+libstdcpp +qt5base-core +qt5base-sql
 endef
+
+MODULE_VERSION:=0.6.0
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
